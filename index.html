@@ -1,14 +1,269 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Spontaneous Combustion</title>
-</head>
-<body>
-  <main>
-    <h1>Spontaneous Combustion</h1>
-    <p>Official developer website.</p>
-  </main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Spontaneous Combustion makes fiery, playful games."
+    />
+    <title>Spontaneous Combustion — Games</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --fire: #ffbb1b;
+        --red: #e12618;
+        --ink: #090909;
+        --panel: #171717;
+        --muted: #b9b9b9;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .nav {
+        min-height: 76px;
+        padding: 12px clamp(20px, 5vw, 80px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #2d2d2d;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      .brand img {
+        width: 48px;
+        height: 48px;
+      }
+      .nav a:not(.brand) {
+        color: var(--fire);
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .hero {
+        min-height: min(600px, 72vw);
+        display: grid;
+        place-items: end center;
+        padding: 48px 24px;
+        background:
+          linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+          url("assets/header.png") center bottom / cover no-repeat;
+      }
+      .hero p {
+        margin: 0;
+        padding: 12px 18px;
+        background: rgba(0, 0, 0, 0.72);
+        border: 1px solid rgba(255, 187, 27, 0.45);
+        border-radius: 999px;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 80px 24px;
+      }
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--fire);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2.4rem, 6vw, 5.4rem);
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+      .intro {
+        max-width: 640px;
+        color: var(--muted);
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+      .games {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 36px;
+      }
+      .game {
+        min-height: 270px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        background: linear-gradient(145deg, #292929, #101010 65%);
+        border: 1px solid #333;
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+      }
+      .game.art {
+        background-image:
+          linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.08)),
+          var(--art);
+        background-position: center;
+        background-size: cover;
+      }
+      .game::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 85% 10%,
+            rgba(255, 187, 27, 0.36),
+            transparent 36%
+          ),
+          radial-gradient(
+            circle at 5% 100%,
+            rgba(225, 38, 24, 0.25),
+            transparent 38%
+          );
+      }
+      .game > * {
+        position: relative;
+      }
+      .game h2 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
+        text-transform: uppercase;
+      }
+      .game p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+      .status {
+        width: fit-content;
+        margin-top: 22px;
+        padding: 7px 10px;
+        background: #fff;
+        border-radius: 999px;
+        color: #111;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .coming {
+        background-color: #111;
+        border-style: dashed;
+      }
+      .coming::before {
+        background: none;
+      }
+      footer {
+        padding: 28px 24px;
+        border-top: 1px solid #2d2d2d;
+        color: var(--muted);
+        text-align: center;
+      }
+      @media (max-width: 640px) {
+        .brand span {
+          display: none;
+        }
+        .games {
+          grid-template-columns: 1fr;
+        }
+        main {
+          padding-top: 56px;
+        }
+        .hero {
+          min-height: 440px;
+          background-size: auto 440px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top"
+          ><img src="assets/logo.png" alt="Spontaneous Combustion flame" /><span
+            >Spontaneous Combustion</span
+          ></a
+        >
+        <a href="#games">Games</a>
+      </nav>
+      <section class="hero" id="top" aria-label="Spontaneous Combustion">
+        <p>Making games that explode with personality.</p>
+      </section>
+    </header>
+    <main id="games">
+      <p class="eyebrow">Our games</p>
+      <h1>Play something<br />explosive.</h1>
+      <p class="intro">
+        Small games, big sparks. Explore what Spontaneous Combustion is making.
+      </p>
+      <section class="games" aria-label="Games">
+        <article
+          class="game art"
+          style="--art: url(&quot;assets/pirate_chef_banner.png&quot;)"
+        >
+          <h2>Pirate Chef</h2>
+          <p>A cooking timer for Sea of Thieves.</p>
+          <a
+            class="status"
+            href="https://play.google.com/store/apps/details?id=com.PanicGamingLTD.piratechef&amp;pcampaignid=web_share"
+            target="_blank"
+            rel="noreferrer"
+            >Get it on Google Play</a
+          >
+        </article>
+        <article
+          class="game art"
+          style="--art: url(&quot;assets/whack_man_icon.png&quot;)"
+        >
+          <h2>Whack Man</h2>
+          <p>Fast reflexes. Big scores.</p>
+          <a
+            class="status"
+            href="https://play.google.com/store/apps/details?id=com.PG.Thwackman1&amp;pcampaignid=web_share"
+            target="_blank"
+            rel="noreferrer"
+            >Get it on Google Play</a
+          >
+        </article>
+        <article
+          class="game art coming"
+          style="--art: url(&quot;assets/arcane_candy_teaser.png&quot;)"
+        >
+          <h2>Arcane Candy</h2>
+          <p>Currently in development.</p>
+          <span class="status">Coming soon</span>
+        </article>
+        <article
+          class="game art coming"
+          style="--art: url(&quot;assets/stickwars_teaser.png&quot;)"
+        >
+          <h2>Stick Wars</h2>
+          <p>Currently in development.</p>
+          <span class="status">Coming soon</span>
+        </article>
+      </section>
+    </main>
+    <footer>© 2026 Spontaneous Combustion</footer>
+  </body>
 </html>
