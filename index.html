@@ -9,6 +9,10 @@
     />
     <title>Spontaneous Combustion — Games</title>
     <style>
+      @font-face {
+        font-family: "FFF Forward";
+        src: url("assets/fff-forward.regular.ttf") format("truetype");
+      }
       :root {
         color-scheme: dark;
         --fire: #ffbb1b;
@@ -27,7 +31,7 @@
         margin: 0;
         background: var(--ink);
         color: #fff;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "FFF Forward", Arial, Helvetica, sans-serif;
       }
       .nav {
         min-height: 76px;
@@ -91,12 +95,6 @@
         letter-spacing: 0.14em;
         text-transform: uppercase;
       }
-      h1 {
-        margin: 0;
-        font-size: clamp(2.4rem, 6vw, 5.4rem);
-        line-height: 0.95;
-        text-transform: uppercase;
-      }
       .intro {
         max-width: 640px;
         color: var(--muted);
@@ -151,10 +149,20 @@
         margin: 0;
         font-size: clamp(1.7rem, 3vw, 2.5rem);
         text-transform: uppercase;
+        text-shadow:
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
       }
       .game p {
         margin: 10px 0 0;
         color: var(--muted);
+        text-shadow:
+          -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
       }
       .status {
         width: fit-content;
@@ -206,7 +214,7 @@
             >Spontaneous Combustion</span
           ></a
         >
-        <a href="#games">Games</a>
+        <a href="#games">GAMES</a>
       </nav>
       <section class="hero" id="top" aria-label="Spontaneous Combustion">
         <p>Making games that explode with personality.</p>
@@ -214,14 +222,11 @@
     </header>
     <main id="games">
       <p class="eyebrow">Our games</p>
-      <h1>Play something<br />explosive.</h1>
-      <p class="intro">
-        Small games, big sparks. Explore what Spontaneous Combustion is making.
-      </p>
+      <p class="intro">Small games, big sparks.</p>
       <section class="games" aria-label="Games">
         <article
           class="game art"
-          style="--art: url(&quot;assets/pirate_chef_banner.png&quot;)"
+          style="--art: url(&quot;assets/pirate_chef_icon.png&quot;)"
         >
           <h2>Pirate Chef</h2>
           <p>A cooking timer for Sea of Thieves.</p>
@@ -238,7 +243,7 @@
           style="--art: url(&quot;assets/whack_man_icon.png&quot;)"
         >
           <h2>Whack Man</h2>
-          <p>Fast reflexes. Big scores.</p>
+          <p>Whack a man, get scores, wear hats.</p>
           <a
             class="status"
             href="https://play.google.com/store/apps/details?id=com.PG.Thwackman1&amp;pcampaignid=web_share"
