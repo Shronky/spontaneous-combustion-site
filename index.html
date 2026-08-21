@@ -57,13 +57,14 @@
         text-decoration: none;
       }
       .hero {
-        min-height: min(600px, 72vw);
+        min-height: clamp(260px, 22vw, 360px);
         display: grid;
         place-items: end center;
         padding: 48px 24px;
         background:
           linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-          url("assets/header.png") center bottom / cover no-repeat;
+          url("assets/header.png") center / contain no-repeat;
+        background-color: #000;
       }
       .hero p {
         margin: 0;
@@ -191,8 +192,8 @@
           padding-top: 56px;
         }
         .hero {
-          min-height: 440px;
-          background-size: auto 440px;
+          min-height: 260px;
+          background-size: contain;
         }
       }
     </style>
